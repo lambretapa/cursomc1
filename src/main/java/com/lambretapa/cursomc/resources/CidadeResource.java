@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lambretapa.cursomc.domain.Categoria;
-import com.lambretapa.cursomc.service.CategoriaService;
+import com.lambretapa.cursomc.domain.Cidade;
+import com.lambretapa.cursomc.service.CidadeService;
 
 @RestController
-@RequestMapping(value = "/categorias")
-public class CategoriaResource {
+@RequestMapping(value = "/cidades")
+public class CidadeResource {
 
 	@Autowired
-	private CategoriaService service;
+	private CidadeService service;
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> listar(@PathVariable Integer id) {
-		Categoria obj = service.buscar(id);
+		Cidade obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
 	}
 }

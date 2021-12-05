@@ -5,19 +5,19 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lambretapa.cursomc.domain.Categoria;
-import com.lambretapa.cursomc.repository.CategoriaRepository;
+import com.lambretapa.cursomc.domain.Cidade;
+import com.lambretapa.cursomc.repository.CidadeRepository;
 import com.lambretapa.cursomc.service.exception.ObjectNotFoundException;
 
 @Service
 public class CidadeService {
 
 	@Autowired
-	private CategoriaRepository repository;
+	private CidadeRepository repository;
 
-	public Categoria buscar(Integer id) {
-		Optional<Categoria> obj = repository.findById(id);
+	public Cidade buscar(Integer id) {
+		Optional<Cidade> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
-				"Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Cidade.class.getName()));
 	}
 }
